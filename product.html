@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .btn {
+      background-color: white;
+      border: 1px solid black;
+      color: black;
+    }
+    .btn-success {
+      background-color: red;
+      color: white;
+    }
+    .btn-success:hover {
+      background-color: #d63b3b;
+      color: white;
+    }
+    .btn:hover {
+      background-color: #f8f9fa;
+      color: black;
+    }
+
+    .card.h-100 {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-img-top {
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-light shadow-sm">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="minico.png" alt="MINICO Logo" class="me-2" style="width: 80px; height: 80px;">
+      <span class="fw-bold">MINICO</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <div class="d-flex flex-column flex-lg-row justify-content-lg-end w-100 align-items-start align-items-lg-center gap-2 mt-3 mt-lg-0">
+        <a class="btn btn-outline-primary" href="index.html">Home</a>
+        <a class="btn btn-outline-primary" href="product.html">Products</a>
+        <a class="btn btn-outline-primary" href="contacts.html">Contact</a>
+        <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#cartModal">Checkout</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <h2 class="mb-4 text-center">Our Products</h2>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
+
+
+   <div class="col">
+  <div class="card h-100">
+    <img src="product1.jpg" class="card-img-top" alt="Product 1" onclick="showFullImage('product1.jpg')">
+    <div class="card-body text-center">
+      <h6 class="card-title">Cute Keychain</h6>
+      <p class="card-text">₱49.00</p>
+      <div class="d-flex justify-content-center gap-2">
+        <a href="#" class="btn btn-sm btn-primary" onclick="addToCart('Cute Keychain', 49.00, 'product1.jpg')">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col">
+  <div class="card h-100">
+    <img src="p2.png" class="card-img-top" alt="Product 2" onclick="showFullImage('p2.png')">
+    <div class="card-body text-center">
+      <h6 class="card-title">Mini MakeUps For Toys</h6>
+      <p class="card-text">₱89.00</p>
+      <div class="d-flex justify-content-center gap-2">
+        <a href="#" class="btn btn-sm btn-primary" onclick="addToCart('Mini MakeUps For Toys', 89.00, 'p2.png')">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col">
+  <div class="card h-100">
+    <img src="p3.png" class="card-img-top" alt="Product 3" onclick="showFullImage('p3.png')">
+    <div class="card-body text-center">
+      <h6 class="card-title">Mini Apple Girl Inside</h6>
+      <p class="card-text">₱59.00</p>
+      <div class="d-flex justify-content-center gap-2">
+        <a href="#" class="btn btn-sm btn-primary" onclick="addToCart('Mini Apple Girl Inside', 59.00, 'p3.png')">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col">
+  <div class="card h-100">
+    <img src="p4.png" class="card-img-top" alt="Product 4" onclick="showFullImage('p4.png')">
+    <div class="card-body text-center">
+      <h6 class="card-title">Sticker Pack</h6>
+      <p class="card-text">₱35.00</p>
+      <div class="d-flex justify-content-center gap-2">
+        <a href="#" class="btn btn-sm btn-primary" onclick="addToCart('Sticker Pack', 35.00, 'p4.png')">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+</div>  
+
+<div class="col">
+  <div class="card h-100">
+    <img src="p5.png" class="card-img-top" alt="Product 5" onclick="showFullImage('p5.png')">
+    <div class="card-body text-center">
+      <h6 class="card-title">Anime Toy</h6>
+      <p class="card-text">₱45.00</p>
+      <div class="d-flex justify-content-center gap-2">
+        <a href="#" class="btn btn-sm btn-primary" onclick="addToCart('Anime Toy', 45.00, 'p5.png')">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col">
+  <div class="card h-100">
+    <img src="p11.png" class="card-img-top" alt="Product 6" onclick="showFullImage('p11.png')">
+    <div class="card-body text-center">
+      <h6 class="card-title">Mini Accessories</h6>
+      <p class="card-text">₱75.00</p>
+      <div class="d-flex justify-content-center gap-2">
+        <a href="#" class="btn btn-sm btn-primary" onclick="addToCart('Mini Accessories', 75.00, 'p11.png')">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col">
+  <div class="card h-100">
+    <img src="p7.png" class="card-img-top" alt="Product 7" onclick="showFullImage('p7.png')">
+    <div class="card-body text-center">
+      <h6 class="card-title">Kawaii Couple Toys</h6>
+      <p class="card-text">₱120.00</p>
+      <div class="d-flex justify-content-center gap-2">
+        <a href="#" class="btn btn-sm btn-primary" onclick="addToCart('Kawaii Couple Toys', 120.00, 'p7.png')">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col">
+  <div class="card h-100">
+    <img src="p8.png" class="card-img-top" alt="Product 8" onclick="showFullImage('p8.png')">
+    <div class="card-body text-center">
+      <h6 class="card-title">Aesthetic Make Ups</h6>
+      <p class="card-text">₱199.00</p>
+      <div class="d-flex justify-content-center gap-2">
+        <a href="#" class="btn btn-sm btn-primary" onclick="addToCart('Aesthetic Make Ups', 199.00, 'p8.png')">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col">
+  <div class="card h-100">
+    <img src="p9.png" class="card-img-top" alt="Product 9" onclick="showFullImage('p9.png')">
+    <div class="card-body text-center">
+      <h6 class="card-title">Mini Watch</h6>
+      <p class="card-text">₱150.00</p>
+      <div class="d-flex justify-content-center gap-2">
+        <a href="#" class="btn btn-sm btn-primary" onclick="addToCart('Mini Watch', 150.00, 'p9.png')">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col">
+  <div class="card h-100">
+    <img src="p10.png" class="card-img-top" alt="Product 10" onclick="showFullImage('p10.png')">
+    <div class="card-body text-center">
+      <h6 class="card-title">Mini Perfumes</h6>
+      <p class="card-text">₱130.00</p>
+      <div class="d-flex justify-content-center gap-2">
+        <a href="#" class="btn btn-sm btn-primary" onclick="addToCart('Mini Perfumes', 130.00, 'p10.png')">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="fullImageModal" tabindex="-1" aria-labelledby="fullImageModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="fullImageModalLabel">Product Image</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img id="fullImage" src="" alt="Full Product Image" class="img-fluid w-100" />
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul id="cartItems" class="list-group"></ul>
+        <hr>
+        <h5>Total: ₱<span id="totalPrice">0.00</span></h5>
+        <h5 class="mt-4">Buyer Information</h5>
+        <form id="buyerForm">
+          <div class="mb-3">
+            <label for="buyerName" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="buyerName" required />
+          </div>
+          <div class="mb-3">
+            <label for="buyerAddress" class="form-label">Address</label>
+            <input type="text" class="form-control" id="buyerAddress" required />
+          </div>
+          <div class="mb-3">
+            <label for="buyerContact" class="form-label">Contact Number</label>
+            <input type="tel" class="form-control" id="buyerContact" required />
+          </div>
+          <div class="mb-3">
+            <label for="paymentMethod" class="form-label">Payment Method</label>
+            <select class="form-select" id="paymentMethod" required>
+              <option value="">Select Payment Method</option>
+              <option value="Cash">Cash on Delivery</option>
+              <option value="Credit">Credit/Debit Card</option>
+              <option value="Paypal">PayPal</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Add More Products</button>
+        <button type="button" class="btn btn-success" onclick="proceedToCheckout()">Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+let cart = [];
+
+function addToCart(productName, productPrice, productImage) {
+  cart.push({ name: productName, price: productPrice, quantity: 1, image: productImage });
+  updateCart();
+  const cartModal = new bootstrap.Modal(document.getElementById('cartModal'));
+  cartModal.show();
+}
+
+function updateCart() {
+  const cartItemsContainer = document.getElementById('cartItems');
+  const totalPriceElement = document.getElementById('totalPrice');
+  cartItemsContainer.innerHTML = '';
+  let totalPrice = 0;
+  cart.forEach((item, index) => {
+    const listItem = document.createElement('li');
+    listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
+    listItem.innerHTML = `
+      <div class="d-flex align-items-center">
+        <img src="${item.image}" alt="${item.name}" class="img-thumbnail" style="width: 50px; height: 50px; margin-right: 10px;">
+        ${item.name} 
+        <span class="badge bg-primary rounded-pill">₱${item.price} x ${item.quantity}</span>
+      </div>
+      <button class="btn btn-sm btn-danger" onclick="removeItem(${index})">Remove</button>`;
+    cartItemsContainer.appendChild(listItem);
+    totalPrice += item.price * item.quantity;
+  });
+  totalPriceElement.textContent = totalPrice.toFixed(2);
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  updateCart();
+}
+
+function proceedToCheckout() {
+  if (cart.length === 0) {
+    alert('Your cart is empty!');
+    return;
+  }
+  const buyerName = document.getElementById('buyerName').value;
+  const buyerAddress = document.getElementById('buyerAddress').value;
+  const buyerContact = document.getElementById('buyerContact').value;
+  const paymentMethod = document.getElementById('paymentMethod').value;
+  if (!buyerName || !buyerAddress || !buyerContact || !paymentMethod) {
+    alert('Please fill in all fields!');
+    return;
+  }
+  const orderDetails = {
+    cart: cart,
+    buyerName: buyerName,
+    buyerAddress: buyerAddress,
+    buyerContact: buyerContact,
+    paymentMethod: paymentMethod,
+  };
+  localStorage.setItem('orderDetails', JSON.stringify(orderDetails));
+  window.location.href = 'reciept.html';
+}
+
+function showFullImage(imageSrc) {
+  const fullImageModal = new bootstrap.Modal(document.getElementById('fullImageModal'));
+  const fullImage = document.getElementById('fullImage');
+  fullImage.src = imageSrc;
+  fullImageModal.show();
+}
+</script>
+
+</body>
+</html>

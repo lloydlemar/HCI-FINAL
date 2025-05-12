@@ -1,0 +1,52 @@
+.hero-section {
+  background-image: url('minico-dash.png'); /* Corrected quotes */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.hero-section > div {
+  position: relative;
+  z-index: 2;
+}
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+    .btn-home   {
+      text-decoration-line: none; 
+      padding-right: 30px;  
+      color: black;
+    }
+    .btn-products   {
+      text-decoration-line: none;   
+       padding-right: 30px; 
+       color: black;
+    }
+    .btn-contacts  {
+      text-decoration-line: none; 
+       padding-right: 30px;  
+       color: black; 
+    }

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receipt</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+
+    .receipt-header {
+      margin-bottom: 20px;
+    }
+    .receipt-footer {
+      margin-top: 30px;
+    }
+    .home-btn {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="receipt-header text-center">
+    <h2>MINICO</h2>
+    <p>Your order has been successfully placed!</p>
+  </div>
+
+  <div class="receipt-details">
+    <h4>Buyer Information:</h4>
+    <p><strong>Name:</strong> <span id="buyerName"></span></p>
+    <p><strong>Address:</strong> <span id="buyerAddress"></span></p>
+    <p><strong>Contact:</strong> <span id="buyerContact"></span></p>
+    <p><strong>Payment Method:</strong> <span id="paymentMethod"></span></p>
+
+    <h4>Order Summary:</h4>
+    <ul id="cartItems" class="list-group">
+
+    </ul>
+
+    <hr>
+    <h5>Total: ₱<span id="totalPrice">0.00</span></h5>
+  </div>
+
+  <div class="receipt-footer text-center">
+    <p>Thank you for shopping with us!</p>
+    <a href="index.html" class="btn btn-primary home-btn">Order Again</a>
+  </div>
+</div>
+
+<script>
+
+const orderDetails = JSON.parse(localStorage.getItem('orderDetails'));
+
+
+document.getElementById('buyerName').textContent = orderDetails.buyerName;
+document.getElementById('buyerAddress').textContent = orderDetails.buyerAddress;
+document.getElementById('buyerContact').textContent = orderDetails.buyerContact;
+document.getElementById('paymentMethod').textContent = orderDetails.paymentMethod;
+
+const cartItemsContainer = document.getElementById('cartItems');
+let totalPrice = 0;
+orderDetails.cart.forEach(item => {
+  const listItem = document.createElement('li');
+  listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
+  listItem.innerHTML = `${item.name} <span class="badge bg-primary rounded-pill">₱${item.price}</span>`;
+  cartItemsContainer.appendChild(listItem);
+  totalPrice += item.price;
+});
+
+document.getElementById('totalPrice').textContent = totalPrice.toFixed(2);
+</script>
+
+</body>
+</html>
